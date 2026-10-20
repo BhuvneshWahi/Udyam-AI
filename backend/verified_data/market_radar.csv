@@ -1,0 +1,6 @@
+type,id,title,category,date,days_to_event,priority,message,source,signal_pct,evidence
+news,sig_001,Festive market signal,Festive,2026-09-25,,HIGH,Festive market/news signal is 14.0% with HIGH strength. Closer monitoring of demand recommended.,cached_news,14.0,Besan and ghee search/demand trending up ahead...
+festival,evt_dhanteras_2026,Dhanteras,Festive,2026-10-11,15,MEDIUM,Dhanteras is 15 days away. It is relevant to your grocery / retail business.,curated_calendar,10.0,festive
+news,sig_003,Festive market signal,Festive,2026-09-25,,MEDIUM,Festive market/news signal is 9.0% with MEDIUM strength.,cached_news,9.0,Dry fruits import costs reported slightly high...
+festival,evt_diwali_2026,Diwali,Festive,2026-10-13,17,LOW,Diwali is 17 days away. It is relevant to your grocery / retail business.,curated_calendar,5.0,festive
+news,sig_002,Staples market signal,Staples,2026-09-25,,LOW,Staples demand roughly flat (+3.0%).,cached_news,3.0,"Staples demand roughly flat, no notable market change..."

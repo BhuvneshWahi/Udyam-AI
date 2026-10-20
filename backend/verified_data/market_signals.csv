@@ -1,0 +1,4 @@
+signal_id,category,region,signal_pct,signal_strength,product_category,evidence,observed_at
+sig_001,Festive,Delhi,14.0,HIGH,Besan and Ghee,Besan and ghee search/demand trending up ahead...,2026-09-25
+sig_002,Staples,Delhi,3.0,LOW,Staples,"Staples demand roughly flat, no notable market change...",2026-09-25
+sig_003,Festive,National,9.0,MEDIUM,Dry Fruits,Dry fruits import costs reported slightly high...,2026-09-25

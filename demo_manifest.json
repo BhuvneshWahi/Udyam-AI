@@ -1,0 +1,15 @@
+{
+  "project": "UDYAM AI",
+  "team": "NEURALS",
+  "demo_business": "Sharma General Store",
+  "location": "Delhi",
+  "sector": "Grocery / Retail",
+  "demo_date": "2026-09-26",
+  "core_demo_queries": [
+    "Besan ka next week kya scene hai?",
+    "Mera GST 3B kab due hai?",
+    "Mere pending notifications dikhao",
+    "Besan ka stock aur procurement kya scene hai?"
+  ],
+  "generated_at_utc": "2026-09-26T08:55:36.086074+00:00"
+}

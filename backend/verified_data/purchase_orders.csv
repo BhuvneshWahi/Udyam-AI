@@ -1,0 +1,2 @@
+id,pr_id,vendor_id,product_id,supplier_id,quantity,status,expected_date
+po_001,pr_001,vendor_sharma_001,prod_besan,sup_001,20,PO_SENT,2026-09-29

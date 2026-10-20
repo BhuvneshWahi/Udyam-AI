@@ -1,0 +1,25 @@
+# API and application runtime
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.6.0
+pandas>=2.2.0
+python-multipart>=0.0.9
+openpyxl>=3.1.5
+supabase>=2.3.0
+python-dotenv>=1.0.0
+PyJWT>=2.8.0
+httpx>=0.27.0
+cryptography>=42.0.0
+
+# Verified AIML / local compliance RAG runtime
+numpy>=1.26
+scikit-learn>=1.4
+lightgbm>=4.0
+joblib>=1.3
+sentence-transformers==6.1.0
+beautifulsoup4>=4.12
+pypdf>=5.0
+tqdm>=4.66
+
+# Test suite
+pytest>=8.0

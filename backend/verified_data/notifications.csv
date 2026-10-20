@@ -1,0 +1,8 @@
+id,vendor_id,type,title,body,priority,is_read,created_at,reference_id
+notif_002,vendor_sharma_001,news,Festive Market Signal,Festive market/news signal is 14.0% with HIGH strength. This may warrant closer monitoring of demand and procurement.,HIGH,False,2026-09-26T09:00:00,sig_001
+notif_007,vendor_sharma_001,procurement,Besan Procurement Review,Purchase order po_001 for Besan (quantity: 20 kg) is expected in 3 days. Current status: PO_SENT.,HIGH,False,2026-09-26T08:55:00,po_001
+notif_001,vendor_sharma_001,compliance_due,GSTR-3B Tax Due,"Seeded demo timeline (reference date: 26 September 2026): saved GSTR-3B task due date is 01 October 2026 (5 days after the demo reference date). This is not a live GST portal status; verify actual filing details.",MEDIUM,False,2026-09-26T08:50:00,ct_gst_3b
+notif_003,vendor_sharma_001,festival,Dhanteras Festival Alert,Dhanteras is 15 days away (2026-10-11).,MEDIUM,False,2026-09-26T08:45:00,evt_dhanteras_2026
+notif_004,vendor_sharma_001,news,Festive Market Signal,Dry fruits festive signal is +9.0%.,MEDIUM,False,2026-09-26T08:40:00,sig_003
+notif_005,vendor_sharma_001,festival,Diwali Festival Alert,Diwali is 17 days away (2026-10-13).,LOW,False,2026-09-26T08:35:00,evt_diwali_2026
+notif_006,vendor_sharma_001,news,Staples Market Signal,Staples demand roughly flat (+3.0%).,LOW,False,2026-09-26T08:30:00,sig_002

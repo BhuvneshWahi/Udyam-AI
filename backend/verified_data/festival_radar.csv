@@ -1,0 +1,3 @@
+id,name,date,days_to_event,category,radar_event_uplift,alert_level,match_reason,alert_message
+evt_dhanteras_2026,Dhanteras,2026-10-11,15,Festive,0.1,MEDIUM,festive,Dhanteras is 15 days away. It is relevant to your grocery / retail business.
+evt_diwali_2026,Diwali,2026-10-13,17,Festive,0.05,LOW,festive,Diwali is 17 days away. It is relevant to your grocery / retail business.

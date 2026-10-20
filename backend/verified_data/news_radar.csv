@@ -1,0 +1,4 @@
+id,title,category,priority,signal_pct,evidence,source,observed_at
+sig_001,Festive market signal,Festive,HIGH,14.0,Besan and ghee search/demand trending up ahead...,cached_news,2026-09-25
+sig_003,Festive market signal,Festive,MEDIUM,9.0,Dry fruits import costs reported slightly high...,cached_news,2026-09-25
+sig_002,Staples market signal,Staples,LOW,3.0,"Staples demand roughly flat, no notable market change...",cached_news,2026-09-25

@@ -1,0 +1,4 @@
+id,vendor_id,type,due_date,status,reminder_days,source
+ct_gst_3b,vendor_sharma_001,GSTR-3B,2026-10-01,pending,"7,3",rules_table
+ct_itr,vendor_sharma_001,ITR (advance tax),2026-11-04,pending,"14,3",rules_table
+ct_udyam_review,vendor_sharma_001,Udyam profile review,2026-12-24,not_due,30,staleness_review

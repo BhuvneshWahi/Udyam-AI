@@ -1,0 +1,172 @@
+import jsPDF from 'jspdf';
+
+export interface DocumentPDFOptions {
+  docType: 'TAX INVOICE' | 'PROFORMA INVOICE' | 'PURCHASE ORDER' | 'PURCHASE REQUISITION';
+  docNumber: string;
+  date: string;
+  dueDate?: string;
+  buyerName: string;
+  buyerAddress?: string;
+  buyerGstin?: string;
+  sellerName?: string;
+  sellerAddress?: string;
+  sellerGstin?: string;
+  items: Array<{
+    description: string;
+    quantity: number;
+    unit_price: number;
+    subtotal: number;
+    gst_rate?: number;
+    gst_amount?: number;
+    total: number;
+  }>;
+  subtotal: number;
+  totalDiscount?: number;
+  totalGst?: number;
+  grandTotal: number;
+  notes?: string;
+  terms?: string;
+}
+
+export function generateDocumentPDF(opts: DocumentPDFOptions): void {
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4',
+  });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  let y = 18;
+
+  // Header Bar
+  doc.setFillColor(15, 23, 42); // slate-900
+  doc.rect(0, 0, pageWidth, 28, 'F');
+
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'bold');
+  doc.text('UDYAM AI — ' + opts.docType, 14, 14);
+
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.text(`Document #: ${opts.docNumber} | Date: ${opts.date}`, 14, 21);
+
+  y = 36;
+  doc.setTextColor(30, 41, 59);
+
+  // Business / Seller Details (Left)
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  doc.text('ISSUER / SUPPLIER:', 14, y);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.text(opts.sellerName || 'Sharma General Store (Demo)', 14, y + 5);
+  doc.text(opts.sellerAddress || 'Address not provided in seeded demo data', 14, y + 10);
+  doc.text(`GSTIN: ${opts.sellerGstin || 'DEMO-NOT-A-REAL-GSTIN'}`, 14, y + 15);
+
+  // Customer / Buyer Details (Right)
+  const rightX = 115;
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  doc.text('BILL TO / RECIPIENT:', rightX, y);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.text(opts.buyerName || 'Valued Customer', rightX, y + 5);
+  doc.text(opts.buyerAddress || 'Address not provided in seeded demo data', rightX, y + 10);
+  doc.text(`GSTIN: ${opts.buyerGstin || 'URP (Unregistered Person)'}`, rightX, y + 15);
+  if (opts.dueDate) {
+    doc.text(`Payment Due: ${opts.dueDate}`, rightX, y + 20);
+  }
+
+  y += 28;
+
+  // Items Table Header
+  doc.setFillColor(241, 245, 249); // slate-100
+  doc.rect(14, y, pageWidth - 28, 8, 'F');
+  doc.setFontSize(8.5);
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(71, 85, 105);
+
+  doc.text('ITEM DESCRIPTION', 18, y + 5.5);
+  doc.text('QTY', 105, y + 5.5);
+  doc.text('RATE (INR)', 125, y + 5.5);
+  doc.text('GST %', 152, y + 5.5);
+  doc.text('TOTAL (INR)', 175, y + 5.5);
+
+  y += 9;
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(15, 23, 42);
+
+  // Items rows
+  opts.items.forEach((item, idx) => {
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
+    const rowColor = idx % 2 === 0 ? 255 : 248;
+    doc.setFillColor(rowColor, rowColor, rowColor);
+    doc.rect(14, y, pageWidth - 28, 7.5, 'F');
+
+    doc.setFontSize(8.5);
+    doc.text(item.description.substring(0, 48), 18, y + 5);
+    doc.text(item.quantity.toString(), 108, y + 5);
+    doc.text(item.unit_price.toLocaleString('en-IN'), 125, y + 5);
+    doc.text((item.gst_rate ?? 18).toString() + '%', 154, y + 5);
+    doc.text(item.total.toLocaleString('en-IN'), 175, y + 5);
+
+    y += 8;
+  });
+
+  y += 4;
+  doc.setDrawColor(226, 232, 240);
+  doc.line(14, y, pageWidth - 14, y);
+  y += 6;
+
+  // Totals Section (Right Aligned)
+  const totalX = 130;
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Subtotal:', totalX, y);
+  doc.text(`INR ${opts.subtotal.toLocaleString('en-IN')}`, 175, y);
+  y += 5;
+
+  if (opts.totalDiscount && opts.totalDiscount > 0) {
+    doc.text('Discount:', totalX, y);
+    doc.text(`- INR ${opts.totalDiscount.toLocaleString('en-IN')}`, 175, y);
+    y += 5;
+  }
+
+  if (opts.totalGst !== undefined) {
+    doc.text('Total GST (CGST+SGST):', totalX, y);
+    doc.text(`INR ${opts.totalGst.toLocaleString('en-IN')}`, 175, y);
+    y += 5;
+  }
+
+  // Grand Total Line
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  doc.setFillColor(236, 253, 245); // emerald-50
+  doc.rect(totalX - 2, y - 4, pageWidth - totalX - 12, 8, 'F');
+  doc.setTextColor(6, 95, 70); // emerald-800
+  doc.text('Grand Total:', totalX, y + 1.5);
+  doc.text(`INR ${opts.grandTotal.toLocaleString('en-IN')}`, 175, y + 1.5);
+
+  y += 16;
+  doc.setTextColor(71, 85, 105);
+  doc.setFontSize(8);
+  doc.setFont('helvetica', 'bold');
+  doc.text('TERMS & NOTES:', 14, y);
+  doc.setFont('helvetica', 'normal');
+  doc.text(opts.terms || 'Payment strictly as per MSMED Act Section 15 guidelines. Goods once sold will be covered by standard warranty.', 14, y + 4.5);
+  if (opts.notes) {
+    doc.text(opts.notes, 14, y + 9);
+  }
+
+  // Footer Disclaimer
+  doc.setFontSize(7.5);
+  doc.setTextColor(148, 163, 184);
+  doc.text('Generated by UDYAM AI — Grounded MSME Decision Support Platform (Demo Session Document)', 14, 285);
+
+  const cleanFilename = `${opts.docType.replace(/\s+/g, '_')}_${opts.docNumber.replace(/[^a-zA-Z0-9_-]/g, '')}.pdf`;
+  doc.save(cleanFilename);
+}

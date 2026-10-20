@@ -1,0 +1,76 @@
+{
+  "name": "UDYAM AI — AI Business Copilot for Indian MSMEs",
+  "short_name": "UDYAM AI",
+  "description": "AI-powered business decision support platform for Indian MSMEs: Sales analytics, demand forecasting, inventory intelligence, GST compliance, and government schemes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "finance",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "AI Copilot",
+      "short_name": "Copilot",
+      "description": "Ask the MSME AI Advisor",
+      "url": "/copilot",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Financial Health",
+      "short_name": "Health",
+      "description": "View MSME Financial Metrics",
+      "url": "/financial-health",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "GST Assistant",
+      "short_name": "GST",
+      "description": "Check GST Filing Deadlines",
+      "url": "/gst-assistant",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

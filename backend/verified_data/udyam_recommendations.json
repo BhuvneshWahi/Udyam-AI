@@ -1,0 +1,76 @@
+{
+    "system": "Udyam AI",
+    "module": "Demand Forecasting & Procurement Planning",
+    "model": {
+        "type": "LightGBM Regressor",
+        "task": "Demand Forecasting"
+    },
+    "recommendations": [
+        {
+            "product_id": "prod_atta",
+            "base_7_day_demand_kg": 393.43,
+            "market_signal_pct": 3.0,
+            "festival_signal_pct": 0.0,
+            "adjusted_7_day_demand_kg": 405.25,
+            "current_inventory_kg": 258.0,
+            "incoming_po_kg": 0.0,
+            "recommended_additional_stock_kg": 228.0,
+            "priority": "MEDIUM"
+        },
+        {
+            "product_id": "prod_besan",
+            "base_7_day_demand_kg": 186.52,
+            "market_signal_pct": 14.000000000000002,
+            "festival_signal_pct": 24.0,
+            "adjusted_7_day_demand_kg": 255.8,
+            "current_inventory_kg": 21.0,
+            "incoming_po_kg": 20.0,
+            "recommended_additional_stock_kg": 266.0,
+            "priority": "HIGH"
+        },
+        {
+            "product_id": "prod_dryfr",
+            "base_7_day_demand_kg": 74.91,
+            "market_signal_pct": 9.0,
+            "festival_signal_pct": 31.0,
+            "adjusted_7_day_demand_kg": 104.21,
+            "current_inventory_kg": 18.0,
+            "incoming_po_kg": 0.0,
+            "recommended_additional_stock_kg": 107.0,
+            "priority": "HIGH"
+        },
+        {
+            "product_id": "prod_ghee",
+            "base_7_day_demand_kg": 134.51,
+            "market_signal_pct": 14.000000000000002,
+            "festival_signal_pct": 26.0,
+            "adjusted_7_day_demand_kg": 187.7,
+            "current_inventory_kg": 54.0,
+            "incoming_po_kg": 0.0,
+            "recommended_additional_stock_kg": 171.0,
+            "priority": "HIGH"
+        },
+        {
+            "product_id": "prod_rice",
+            "base_7_day_demand_kg": 403.51,
+            "market_signal_pct": 3.0,
+            "festival_signal_pct": 0.0,
+            "adjusted_7_day_demand_kg": 415.62,
+            "current_inventory_kg": 263.0,
+            "incoming_po_kg": 0.0,
+            "recommended_additional_stock_kg": 236.0,
+            "priority": "MEDIUM"
+        },
+        {
+            "product_id": "prod_sugar",
+            "base_7_day_demand_kg": 259.56,
+            "market_signal_pct": 3.0,
+            "festival_signal_pct": 0.0,
+            "adjusted_7_day_demand_kg": 267.35,
+            "current_inventory_kg": 180.0,
+            "incoming_po_kg": 0.0,
+            "recommended_additional_stock_kg": 141.0,
+            "priority": "MEDIUM"
+        }
+    ]
+}
